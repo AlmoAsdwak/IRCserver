@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "IRCserver": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
