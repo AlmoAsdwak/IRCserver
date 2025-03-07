@@ -67,7 +67,11 @@ namespace IRCserver
                         if (line == null)
                             break;
                         string message = $"{DateTime.Now} [{client.Client.RemoteEndPoint}]->{line}";
-                        File.AppendAllText("data.txt", message + Environment.NewLine);
+                        lock (streamWriters)
+                        {
+                            File.AppendAllText("data.txt", message + Environment.NewLine);
+                        }
+
                         Console.WriteLine(message);
                         lock (streamWriters)
                             foreach (var item in streamWriters)
